@@ -3,7 +3,7 @@ import 'package:investapp/modules/user/domain/entities/user.dart';
 
 final class UserBloc extends Bloc<UserEvent, User?> {
   UserBloc() : super(null) {
-    add(LogoutUser(null));
+    on<LoginUser>((event, emit) => emit(null));
   }
 }
 

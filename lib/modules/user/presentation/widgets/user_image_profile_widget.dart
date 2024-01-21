@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:investapp/modules/user/bloc/user_bloc.dart';
@@ -14,7 +15,7 @@ final class UserImageProfileWidget extends BaseWidget {
         return switch(state.runtimeType) {
           LoginUser => _buildImageProfile(),
           AuthUser => _buildLoading(),
-          _ => const SizedBox.shrink(),
+          _ => _buildImageProfile(),
         };
       },
     );
@@ -22,7 +23,11 @@ final class UserImageProfileWidget extends BaseWidget {
 
   Widget _buildImageProfile() {
     return CircleAvatar(
-      radius: 50.r,
+      radius: 20.r,
+      backgroundColor: theme.colorScheme.primary,
+      backgroundImage: CachedNetworkImageProvider(
+        "https://www.thispersondoesnotexist.com/",
+      ),
     );
   }
 
