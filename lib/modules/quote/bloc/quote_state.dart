@@ -1,7 +1,7 @@
 part of "quote_bloc.dart";
 
 abstract class QuoteState {
-  final List<Quote>? quote;
+  final Quote? quote;
   QuoteState(this.quote);
 }
 

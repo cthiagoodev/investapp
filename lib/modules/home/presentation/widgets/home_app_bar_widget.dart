@@ -5,7 +5,7 @@ import 'package:investapp/modules/user/user.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class HomePreferredSizeWidget extends PreferredSize {
-  const HomePreferredSizeWidget({super.key, required super.child}) : super(preferredSize: const Size.fromHeight(200));
+  const HomePreferredSizeWidget({super.key, required super.child}) : super(preferredSize: const Size.fromHeight(150));
 }
 
 final class HomeAppBarWidget extends BaseWidget<HomeController> {
@@ -15,7 +15,7 @@ final class HomeAppBarWidget extends BaseWidget<HomeController> {
   Widget builder() {
     return Container(
       padding: EdgeInsets.only(
-        top: 10.w,
+        top: MediaQuery.of(context).padding.top + 10.w,
         left: 20.w,
         right: 20.w,
         bottom: 10.w,

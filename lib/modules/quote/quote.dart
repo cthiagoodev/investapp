@@ -1,7 +1,3 @@
 library quote;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'presentation/widgets/quote_list_widget.dart';

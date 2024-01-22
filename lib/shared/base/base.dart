@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/home/home.dart';
 import 'package:investapp/shared/basics/context.dart';
@@ -24,7 +25,10 @@ abstract base class BaseScreen<T extends Object> extends BaseApp<T> {
       data: const MediaQueryData(textScaler: TextScaler.linear(1.0)),
       child: Scaffold(
         appBar: const HomePreferredSizeWidget(child: HomeAppBarWidget()),
-        body: builder(),
+        body: Padding(
+          padding: EdgeInsets.all(20.w),
+          child: builder(),
+        ),
       ),
     );
   }

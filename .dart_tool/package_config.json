@@ -38,6 +38,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "brasil_fields",
+      "rootUri": "file:///Users/thiagosousa/.pub-cache/hosted/pub.dev/brasil_fields-1.14.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "build",
       "rootUri": "file:///Users/thiagosousa/.pub-cache/hosted/pub.dev/build-2.4.1",
       "packageUri": "lib/",
@@ -276,6 +282,12 @@
       "rootUri": "file:///Users/thiagosousa/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "intl",
+      "rootUri": "file:///Users/thiagosousa/.pub-cache/hosted/pub.dev/intl-0.19.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "io",
@@ -638,7 +650,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-21T19:20:04.449982Z",
+  "generated": "2024-01-22T04:18:21.982070Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

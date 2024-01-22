@@ -6,8 +6,8 @@ final class GetQuoteUseCase {
 
   const GetQuoteUseCase(this._repository);
 
- Future<List<Quote>> getAPI() async {
-    final List<Quote> response = await _repository.list();
+ Future<Quote> getAPI() async {
+    final Quote response = await _repository.get();
     return response;
   }
 }

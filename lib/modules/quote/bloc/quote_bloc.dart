@@ -12,12 +12,13 @@ final class QuoteBloc extends Bloc<QuoteEvent, QuoteState> {
   QuoteBloc(this._getQuoteUseCase) : super(QuoteInitialState()) {
     on<QuoteLoadingEvent>(_onLoading);
     on<QuoteErrorEvent>(_onError);
+    add(QuoteLoadingEvent());
   }
 
   Future<void> _onLoading(QuoteLoadingEvent event, Emitter<QuoteState> emit) async {
     emit(QuoteLoadingState(null));
     try {
-      final List<Quote> response = await _getQuoteUseCase.getAPI();
+      final Quote response = await _getQuoteUseCase.getAPI();
       emit(QuoteSuccessState(response));
     } on AppException catch(error, exception) {
       emit(QuoteErrorState(null, error.toString()));

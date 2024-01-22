@@ -12,7 +12,7 @@ Stock _$StockFromJson(Map<String, dynamic> json) => Stock(
       close: (json['close'] as num?)?.toDouble(),
       change: (json['change'] as num?)?.toDouble(),
       volume: json['volume'] as int?,
-      marketCap: json['market_cap'] as int?,
+      marketCap: json['marketCap'] as int?,
       logo: json['logo'] as String?,
       sector: json['sector'] as String?,
     );
@@ -23,7 +23,7 @@ Map<String, dynamic> _$StockToJson(Stock instance) => <String, dynamic>{
       'close': instance.close,
       'change': instance.change,
       'volume': instance.volume,
-      'market_cap': instance.marketCap,
+      'marketCap': instance.marketCap,
       'logo': instance.logo,
       'sector': instance.sector,
     };
