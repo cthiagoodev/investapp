@@ -16,7 +16,7 @@ final class QuoteListWidget extends BaseWidget<QuoteController> {
   const QuoteListWidget({super.key});
 
   @override
-  Widget builder() {
+  Widget builder(BuildContext context) {
     return BlocProvider(
       create: onCreate,
       child: Column(

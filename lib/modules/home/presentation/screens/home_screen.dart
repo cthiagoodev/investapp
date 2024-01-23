@@ -1,5 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:investapp/modules/home/presentation/controllers/home_controller.dart';
+import 'package:investapp/modules/home/presentation/widgets/home_app_bar_widget.dart';
 import 'package:investapp/modules/home/presentation/widgets/home_option_button.dart';
 import 'package:investapp/shared/shared.dart';
 
@@ -7,8 +8,9 @@ final class HomeScreen extends BaseScreen<HomeController> {
   const HomeScreen({super.key});
 
   @override
-  Widget builder() {
+  Widget builder(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.all(20.w),
       physics: const AlwaysScrollableScrollPhysics(
         parent: BouncingScrollPhysics()
       ),
@@ -21,12 +23,14 @@ final class HomeScreen extends BaseScreen<HomeController> {
           ),
 
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.h),
+            padding: EdgeInsets.only(bottom: 10.h, top: 20.h),
             child: HomeOptionButton(
               icon: Icons.BUSINESS_TIME_SOLID,
               title: "Ações",
               description: "Acompanhe em tempo real o preço de ações.",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.quote);
+              },
             ),
           ),
 
@@ -63,4 +67,7 @@ final class HomeScreen extends BaseScreen<HomeController> {
       ),
     );
   }
+
+  @override
+  PreferredSizeWidget get appBar => const HomePreferredSizeWidget(child: HomeAppBarWidget());
 }

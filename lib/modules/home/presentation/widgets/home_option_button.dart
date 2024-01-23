@@ -18,7 +18,7 @@ final class HomeOptionButton extends BaseWidget<HomeController> {
   });
 
   @override
-  Widget builder() {
+  Widget builder(BuildContext context) {
     return InkWell(
       onTap: onPressed,
       child: Column(

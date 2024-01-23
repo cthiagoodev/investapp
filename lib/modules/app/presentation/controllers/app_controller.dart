@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/home/home.dart';
-import 'package:investapp/modules/quote/presentation/controllers/quote_controller.dart';
+import 'package:investapp/modules/quote/quote.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class AppController {
@@ -12,6 +12,7 @@ final class AppController {
   Route onGenerateRoute(RouteSettings settings) {
     return switch(settings.name) {
       AppRoutes.home => _buildRoute(settings, child: const HomeScreen()),
+      AppRoutes.quote => _buildRoute(settings, child: const QuoteScreen()),
       _ => _buildRoute(settings, child: const HomeScreen()),
     };
   }

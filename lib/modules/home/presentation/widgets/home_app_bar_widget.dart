@@ -12,10 +12,10 @@ final class HomeAppBarWidget extends BaseWidget<HomeController> {
   const HomeAppBarWidget({super.key});
 
   @override
-  Widget builder() {
-    return Container(
+  Widget builder(BuildContext context) {
+    return Padding(
       padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top + 10.w,
+        top: MediaQuery.of(context).padding.top + 20.w,
         left: 20.w,
         right: 20.w,
         bottom: 10.w,

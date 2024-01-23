@@ -8,7 +8,7 @@ final class UserImageProfileWidget extends BaseWidget {
   const UserImageProfileWidget({super.key});
 
   @override
-  Widget builder() {
+  Widget builder(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         return switch(state.runtimeType) {
