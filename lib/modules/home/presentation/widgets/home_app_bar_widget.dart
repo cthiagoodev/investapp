@@ -53,15 +53,13 @@ final class HomeAppBarWidget extends BaseWidget<HomeController> {
   }
 
   Widget _buildUserName() {
-    final UserBloc bloc = BlocProvider.of<UserBloc>(context);
-    return BlocBuilder(
-      bloc: bloc,
+    return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
-        if(state is LoginUser) {
+        if(state is UserLoginState) {
           return Text("Thiago Sousa", style: _nameStyle());
         }
 
-        if(state is AuthUser) {
+        if(state is UserAuthProcessState) {
           return Text("Aguarde...", style: _nameStyle());
         }
 
