@@ -1,3 +1,1 @@
-final class QuoteController {
-
-}
+final class QuoteController {}

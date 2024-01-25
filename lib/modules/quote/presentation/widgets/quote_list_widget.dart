@@ -19,73 +19,79 @@ final class QuoteListWidget extends BaseWidget<QuoteController> {
         final Stock stock = _quote.stocks[index];
         return Padding(
           padding: EdgeInsets.only(bottom: 10.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 40.w,
-                    height: 40.w,
-                    margin: EdgeInsets.only(right: 10.w),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      shape: BoxShape.circle,
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100.r),
-                      child: SvgPicture.network(
-                        stock.logo ?? "",
-                        placeholderBuilder: (context) => Padding(
-                          padding: EdgeInsets.all(10.w),
-                          child: CircularProgressIndicator(
-                            strokeWidth: .5,
+          child: InkWell(
+            onTap: () => Navigator.of(context).pushNamed<Stock>(
+              AppRoutes.quoteDetail,
+              arguments: stock,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 40.w,
+                      height: 40.w,
+                      margin: EdgeInsets.only(right: 10.w),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        shape: BoxShape.circle,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100.r),
+                        child: SvgPicture.network(
+                          stock.logo ?? "",
+                          placeholderBuilder: (context) => Padding(
+                            padding: EdgeInsets.all(10.w),
+                            child: CircularProgressIndicator(
+                              strokeWidth: .5,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
 
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        stock.stock,
-                        style: theme.textTheme.labelSmall,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          stock.stock,
+                          style: theme.textTheme.labelSmall,
+                        ),
 
+                        Text(
+                          stock.sector ?? "",
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    if(stock.close != null)
                       Text(
-                        stock.sector ?? "",
+                        UtilBrasilFields.obterReal(stock.close!),
                         style: theme.textTheme.labelSmall?.copyWith(
-                          color: Colors.grey,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
 
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  if(stock.close != null)
-                    Text(
-                      UtilBrasilFields.obterReal(stock.close!),
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
+                    if(stock.change != null)
+                      Text(
+                        UtilBrasilFields.obterReal(stock.change!),
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: stock.change!.isNegative ? Colors.red : Colors.green,
+                        ),
                       ),
-                    ),
-
-                  if(stock.change != null)
-                    Text(
-                      UtilBrasilFields.obterReal(stock.change!),
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: stock.change!.isNegative ? Colors.red : Colors.green,
-                      ),
-                    ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },

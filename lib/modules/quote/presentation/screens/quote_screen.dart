@@ -18,7 +18,7 @@ final class QuoteScreen extends BaseScreen<QuoteController> {
     return BlocProvider(
       create: onCreate,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        padding: EdgeInsets.only(left: 20.w, right: 20.w),
         child: BlocBuilder<QuoteBloc, QuoteState>(
           builder: (context, state) {
             return switch(state.runtimeType) {

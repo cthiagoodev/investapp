@@ -13,6 +13,7 @@ final class AppController {
     return switch(settings.name) {
       AppRoutes.home => _buildRoute(settings, child: const HomeScreen()),
       AppRoutes.quote => _buildRoute(settings, child: const QuoteScreen()),
+      AppRoutes.quoteDetail => _buildRoute(settings, child: const QuoteDetailScreen()),
       _ => _buildRoute(settings, child: const HomeScreen()),
     };
   }
@@ -31,5 +32,6 @@ final class AppController {
     ///Controllers
     GetIt.I.registerLazySingleton<HomeController>(() => HomeController());
     GetIt.I.registerLazySingleton<QuoteController>(() => QuoteController());
+    GetIt.I.registerLazySingleton<QuoteDetailController>(() => QuoteDetailController());
   }
 }
