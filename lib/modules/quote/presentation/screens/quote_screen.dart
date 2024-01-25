@@ -15,19 +15,22 @@ final class QuoteScreen extends BaseScreen<QuoteController> {
 
   @override
   Widget builder(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: BlocBuilder<QuoteBloc, QuoteState>(
-        builder: (context, state) {
-          return switch(state.runtimeType) {
-            QuoteSuccessState => state.quote == null
-                ? _buildEmpty()
-                : _buildState(state.quote!),
-            QuoteLoadingState => _buildLoading(),
-            QuoteErrorState => _buildError((state as QuoteErrorState).message),
-            _ => _buildEmpty(),
-          };
-        },
+    return BlocProvider(
+      create: onCreate,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: BlocBuilder<QuoteBloc, QuoteState>(
+          builder: (context, state) {
+            return switch(state.runtimeType) {
+              QuoteSuccessState => state.quote == null
+                  ? _buildEmpty()
+                  : _buildState(state.quote!),
+              QuoteLoadingState => _buildLoading(),
+              QuoteErrorState => _buildError((state as QuoteErrorState).message),
+              _ => _buildEmpty(),
+            };
+          },
+        ),
       ),
     );
   }
