@@ -1,0 +1,1 @@
+ /Users/thiagosousa/Dev/Projects/investapp/.dart_tool/flutter_build/d3bb31d88915d72545c3540bc8a08111/native_assets.yaml: 

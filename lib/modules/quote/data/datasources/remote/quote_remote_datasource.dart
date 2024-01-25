@@ -5,7 +5,7 @@ class QuoteRemoteDataSource {
 
   const QuoteRemoteDataSource(this._client);
 
-  Future<List<Map<String, dynamic>>> fetch() async {
+  Future<Map<String, dynamic>> fetch() async {
     const  String path = "/api/quote/list";
     final Response response = await _client.get(path);
     return response.data;

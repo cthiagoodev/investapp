@@ -10,6 +10,8 @@ final class DioService implements HttpClient {
     _dio.options = BaseOptions(
       baseUrl: "https://brapi.dev",
     );
+
+    _dio.interceptors.add(LogInterceptor());
   }
 
   @override
@@ -86,7 +88,7 @@ final class DioService implements HttpClient {
   Response<T> _handleSuccess<T>(dynamic response) {
     return Response<T>(
       data: response.data!,
-      headers: response.headers.map as Map<String, String>,
+      headers: {},
       statusCode: response.statusCode!,
       statusMessage: response.statusMessage ?? "",
     );

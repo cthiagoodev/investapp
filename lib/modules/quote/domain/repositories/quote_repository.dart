@@ -4,5 +4,5 @@ enum SortByOptions {name, close, change, change_abs, volume, market_cap_basic, s
 enum SortOrderOptions {desc, asc}
 
 abstract interface class IRemoteQuoteRepository {
-  Future<List<Quote>> list();
+  Future<Quote> get();
 }

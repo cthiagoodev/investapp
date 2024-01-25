@@ -6,15 +6,15 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		85iaADE5tc/NukRC+KGdiZaZ0ZA=
+		h5OB7aKzS5WR9SemvZAyN6FEkJs=
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		21tVqbIV90TbglF4ZJhNBz8uj4w=
+		W+fDcVuClvl96hxlvo0iYzyNiak=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		vyGp6PvFo4RvsFtPoIWeCReyIC8=
+		cJvi/2iRYClnS0eOCcJcZH7nBFc=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,35 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		ITmxi0+g6EjnavamBgw1d5tlpfE=
+		8niaegcUeM8a7NvzH1l9YhQCvfQ=
+		</data>
+		<key>flutter_assets/assets/icons/bell-regular.svg</key>
+		<data>
+		E8Tvp02bTI7j4giuGBi3oB75WYU=
+		</data>
+		<key>flutter_assets/assets/icons/bitcoin.svg</key>
+		<data>
+		Gg9slxxb2+aTqypvT5w46taGYkE=
+		</data>
+		<key>flutter_assets/assets/icons/business-time-solid.svg</key>
+		<data>
+		87VxZ0UjpXWEa4HHv0XiFKIfeLo=
+		</data>
+		<key>flutter_assets/assets/icons/chevron-left-solid.svg</key>
+		<data>
+		AElq8sGtoWDt9/GuJpT8qRKjNRA=
+		</data>
+		<key>flutter_assets/assets/icons/coins-solid.svg</key>
+		<data>
+		WXyn8+JFw5t/jJlln5vBikrVp1Y=
+		</data>
+		<key>flutter_assets/assets/icons/ellipsis-solid.svg</key>
+		<data>
+		KEfXiif28gFsYmvRNwyBjiTugZA=
+		</data>
+		<key>flutter_assets/assets/icons/hand-holding-dollar-solid.svg</key>
+		<data>
+		sGIbQxpDUwfRdXwKF5jxYiieAgo=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -30,11 +58,11 @@
 		</data>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<data>
-		8vpBrNk/5P/p/7un/AheNJ7WLIo=
+		pXNEv/BQdpK+lI0/RFBCl+Q6JjY=
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		7uPiQfCpjgPjjWAHFx+KAA5s484=
+		r3KjGtEnJLta3lNg+CfHvC7FPFU=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -55,14 +83,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9WbMb8zGVzZcAZeszzp9b4D4Ugn/Zm/3dPTcvFJKqEI=
+			8zNqmvJYTSYxOCht8Zi9cy/uWKpf3V1twblpGhDpS9c=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RBNvo1WzZ4oRRq0W9+hknpT7T8If536DEMBg9hyq/4o=
+			BtOl9w3LOWfrU7a7E3eouj26CLqRWAZdwHL6hp9ygbg=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -76,7 +104,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X1kqdZGfMxO7hRnyPiG+GsKMGDhPt/hNn89P3fJ8j40=
+			BC5qYsBG+YKG5LpifWgqHTzU6GblP5QCvRsTwyuPHAw=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/bell-regular.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7pOimAmhIwXzxs8HFU7C4iUTTnXeuPBk3kczn2gg1kA=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/bitcoin.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oyXEh4LGBAnOSCDP1iHiVmPCnhhALejR+kzkTPbjjyo=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/business-time-solid.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7KAxrq0c4WEl31u8MM6PSmaee/w0ESrUiVismCs46vA=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/chevron-left-solid.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IsmbhvxsUFhaL1tliOBejyBRMvd2Z8GSgS3otKLIwO4=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/coins-solid.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5hsYZ9MDbM2IP8zh6jqI1zKIhXDMqK3VM8i9cJZ53kU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/ellipsis-solid.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Qe9q1SlAMvilQ26KOvJvPcpXQA+ScH55yiV9sCveoZc=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/hand-holding-dollar-solid.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			t95oxdGgxlJNQwpwWWhWB0mHCAh+1FwghRl4w1kA1iI=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -90,14 +167,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yuohnKVCTa8HGCvX0NZT5Bz0DfMH4eRHwl4vRVKRiVo=
+			F+Ff13tf1LWgM2IawH+q6s+nb4MeMeDcvbs17w9WDbo=
 			</data>
 		</dict>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9XM4dO0SISY+kLnqQ1FUXNRgFmg/ecteo/EHR+oXJ08=
+			MVY+BADoEfRgJl6sKuhmyRbav1tidI+xUzNqCD2Jhg8=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
