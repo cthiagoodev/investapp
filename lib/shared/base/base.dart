@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
-import 'package:investapp/modules/home/home.dart';
-import 'package:investapp/shared/basics/context.dart';
-import 'package:investapp/shared/shared.dart';
+import 'package:investapp/shared/ui/widgets/default_appbar_widget.dart';
 
 export "package:flutter/material.dart";
 

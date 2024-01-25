@@ -18,7 +18,6 @@ final class HomeAppBarWidget extends BaseWidget<HomeController> {
         top: MediaQuery.of(context).padding.top + 20.w,
         left: 20.w,
         right: 20.w,
-        bottom: 10.w,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

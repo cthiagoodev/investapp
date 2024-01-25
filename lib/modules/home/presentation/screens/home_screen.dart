@@ -10,7 +10,7 @@ final class HomeScreen extends BaseScreen<HomeController> {
   @override
   Widget builder(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       physics: const AlwaysScrollableScrollPhysics(
         parent: BouncingScrollPhysics()
       ),

@@ -13,13 +13,13 @@ final class DefaultAppBarWidget extends BaseWidget {
   Widget builder(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top + 20.w,
+        top: MediaQuery.of(context).padding.top + 50.h,
         left: 20.w,
         right: 20.w,
         bottom: 10.w,
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
@@ -32,8 +32,24 @@ final class DefaultAppBarWidget extends BaseWidget {
               height: 20.sp,
             ),
           ),
+
+          Text(
+            _getPageTitle(context),
+            style: theme.textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+
+          const SizedBox.shrink(),
         ],
       ),
     );
+  }
+
+  String _getPageTitle(BuildContext context) {
+    return switch(ModalRoute.of(context)?.settings.name) {
+      AppRoutes.quote => "Cotações disponíveis",
+      _ => "Page",
+    };
   }
 }
