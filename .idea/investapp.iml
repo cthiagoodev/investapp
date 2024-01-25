@@ -18,6 +18,9 @@
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/sqflite/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/sqflite/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/sqflite/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/Pods" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/Runner.xcworkspace/xcuserdata" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
