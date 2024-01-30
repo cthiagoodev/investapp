@@ -1,16 +1,30 @@
-# investapp
+# **InvestApp**
 
-A new Flutter project.
+## Descrição
 
-## Getting Started
+O InvestApp é um aplicativo para Android e iOS que mostra dados de cotações e criptomoedas. O aplicativo foi desenvolvido usando Flutter, BloC, práticas de SOLID, Clean Architecture e Código Limpo.
 
-This project is a starting point for a Flutter application.
+## Recursos
 
-A few resources to get you started if this is your first Flutter project:
+Lista de criptomoedas com cotações em tempo real
+Gráficos de preços das criptomoedas
+Notificações sobre variações de preços
+Busca de criptomoedas
+Configurações de personalização
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tecnologias
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Flutter
+* BloC
+* SOLID
+* Clean Architecture
+* Código Limpo
+
+## Contribuições
+
+Contribuições são bem-vindas. Se você deseja contribuir para o desenvolvimento do InvestApp, siga estas etapas:
+
+Clone o repositório do GitHub.
+Faça suas alterações.
+Faça um commit das suas alterações.
+Envie um pull request.
