@@ -8,7 +8,9 @@ import 'package:investapp/modules/quote/domain/entities/quote.dart';
 import 'package:investapp/modules/quote/domain/usecases/get_quote_usecase.dart';
 import 'package:investapp/modules/quote/presentation/controllers/quote_controller.dart';
 import 'package:investapp/modules/quote/presentation/widgets/quote_list_widget.dart';
+import 'package:investapp/modules/quote/presentation/widgets/quote_loading_widget.dart';
 import 'package:investapp/shared/shared.dart';
+import 'package:shimmer/shimmer.dart';
 
 final class QuoteScreen extends BaseScreen<QuoteController> {
   const QuoteScreen({super.key});
@@ -45,13 +47,7 @@ final class QuoteScreen extends BaseScreen<QuoteController> {
   }
 
   Widget _buildLoading() {
-    return Center(
-      child: SizedBox(
-        width: 50.w,
-        height: 50.w,
-        child: const CircularProgressIndicator(),
-      ),
-    );
+    return const QuoteLoadingWidget();
   }
 
   Widget _buildError(String message) {
