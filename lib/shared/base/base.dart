@@ -9,7 +9,7 @@ part 'base_app.dart';
 abstract base class BaseScreen<T extends Object> extends BaseApp<T> {
   const BaseScreen({super.key});
 
-  PreferredSizeWidget get appBar => const DefaultPreferredSizeWidget(child: DefaultAppBarWidget());
+  PreferredSizeWidget? get appBar => const DefaultPreferredSizeWidget(child: DefaultAppBarWidget());
 
   @override
   State<BaseScreen> createState() => _BaseScreenState();

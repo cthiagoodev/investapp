@@ -16,12 +16,13 @@ final class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<UserBloc>(create: (context) {
-          return UserBloc(AuthUserUseCase(UserRemoteRepository(UserRemoteDataSource(FirebaseAuth.instance))));
+          return UserBloc(AuthUserUseCase(
+              UserRemoteRepository(UserRemoteDataSource(FirebaseAuth.instance))));
         }),
       ],
       child: MaterialApp(
         title: "InvestApp",
-        initialRoute: AppRoutes.home,
+        initialRoute: AppRoutes.login,
         debugShowCheckedModeBanner: false,
         theme: theme,
         onGenerateRoute: _controller.onGenerateRoute,
