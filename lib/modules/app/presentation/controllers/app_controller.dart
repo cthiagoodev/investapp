@@ -6,7 +6,7 @@ import 'package:investapp/shared/shared.dart';
 
 final class AppController {
   AppController() {
-    initInstances();
+    _initInstances();
   }
 
   Route onGenerateRoute(RouteSettings settings) {
@@ -25,7 +25,7 @@ final class AppController {
     );
   }
 
-  void initInstances() {
+  void _initInstances() {
     ///Services
     GetIt.I.registerSingleton<HttpClient>(DioService(Dio()));
 

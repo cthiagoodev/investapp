@@ -10,7 +10,6 @@ import 'package:investapp/modules/quote/presentation/controllers/quote_controlle
 import 'package:investapp/modules/quote/presentation/widgets/quote_list_widget.dart';
 import 'package:investapp/modules/quote/presentation/widgets/quote_loading_widget.dart';
 import 'package:investapp/shared/shared.dart';
-import 'package:shimmer/shimmer.dart';
 
 final class QuoteScreen extends BaseScreen<QuoteController> {
   const QuoteScreen({super.key});
