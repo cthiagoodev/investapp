@@ -4,9 +4,8 @@ import 'package:investapp/shared/shared.dart';
 final class InputWidget extends TextFormField {
   InputWidget({super.key}) : super(
     decoration: InputDecoration(
-      fillColor: Colors.red,
-      focusColor: Colors.red,
-      hoverColor: Colors.red,
+      fillColor: Colors.grey.withOpacity(.1),
+      filled: true,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100.r),
         borderSide: BorderSide(
