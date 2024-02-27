@@ -14,3 +14,4 @@ export './ui/widgets/circle_button_widget.dart';
 export './ui/icons/icons.dart';
 export 'ui/widgets/default_appbar_widget.dart';
 export 'ui/widgets/shimmer_effect_widget.dart';
+export 'ui/widgets/input_widget.dart';

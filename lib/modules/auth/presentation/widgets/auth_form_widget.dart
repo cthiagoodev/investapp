@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:investapp/modules/auth/auth.dart';
 import 'package:investapp/modules/user/bloc/user_bloc.dart';
 import 'package:investapp/modules/user/user.dart';
-import 'package:investapp/shared/base/base.dart';
+import 'package:investapp/shared/shared.dart';
 
 final class AuthFormWidget extends BaseWidget<AuthController> {
   const AuthFormWidget({super.key});
@@ -12,7 +12,9 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         return switch(state.runtimeType) {
-          UserAuthProcessState || UserLoginState => _buildState(state),
+          UserAuthProcessState ||
+          UserLogoutState ||
+          UserInitialState => _buildState(state),
           _ => SizedBox.shrink(),
         };
       },
@@ -24,7 +26,7 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
     return Form(
       child: Column(
         children: [
-
+          InputWidget(),
         ],
       ),
     );
