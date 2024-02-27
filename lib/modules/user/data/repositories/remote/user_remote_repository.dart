@@ -1,13 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:investapp/modules/auth/data/datasources/remote/auth_remote_datasource.dart';
-import 'package:investapp/modules/auth/domain/repositories/remote/auth_remote_repository.dart';
+import 'package:investapp/modules/user/data/datasources/remote/user_remote_datasource.dart';
 import 'package:investapp/modules/user/domain/entities/user.dart';
-import 'package:investapp/modules/user/user.dart';
+import 'package:investapp/modules/user/domain/repositories/remote/user_remote_repository.dart';
 
-final class AuthRemoteRepository implements IAuthRemoteRepository {
-  final AuthRemoteDataSource _source;
+final class UserRemoteRepository implements IUserRemoteRepository {
+  final UserRemoteDataSource _source;
 
-  AuthRemoteRepository(this._source);
+  UserRemoteRepository(this._source);
 
   @override
   Future<User?> login({required String email, required String password}) async {
