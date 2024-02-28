@@ -27,7 +27,9 @@ final class InputWidget extends TextFormField {
       fillColor: Colors.grey.withOpacity(.1),
       filled: true,
       hintText: hintText,
-      hintStyle: _theme.textTheme.labelSmall,
+      hintStyle: _theme.textTheme.labelSmall?.copyWith(
+        color: Colors.grey,
+      ),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(100.r),
         borderSide: const BorderSide(

@@ -16,6 +16,10 @@ final class UserBloc extends Bloc<UserEvent, UserState> {
     on<UserLoginEvent>(_onLogin);
   }
 
+  void login(String email, String password) {
+    add(UserLoginEvent(email, password));
+  }
+
   Future<void> _onLogin(UserLoginEvent event, Emitter<UserState> emit) async {
     try {
       emit(UserAuthProcessState(null));

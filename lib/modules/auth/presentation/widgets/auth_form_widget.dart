@@ -15,8 +15,9 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
         return switch(state.runtimeType) {
           UserAuthProcessState ||
           UserLogoutState ||
+          UserErrorState ||
           UserInitialState => _buildState(state),
-          _ => SizedBox.shrink(),
+          _ => const SizedBox.shrink(),
         };
       },
     );
@@ -48,9 +49,18 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
             ),
           ),
 
-          ButtonWidget(
-            text: "Entrar",
-            onPressed: () {},
+          ValueListenableBuilder<bool>(
+            valueListenable: controller.formIsValid,
+            builder: (context, value, child) {
+              return ButtonWidget(
+                text: "Entrar",
+                enable: value,
+                onPressed: () {
+                  BlocProvider.of<UserBloc>(context)
+                      .login(controller.email.text, controller.password.text);
+                },
+              );
+            },
           ),
         ],
       ),
