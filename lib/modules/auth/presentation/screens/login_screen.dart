@@ -1,4 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/auth/presentation/controllers/auth_controller.dart';
 import 'package:investapp/modules/auth/presentation/widgets/auth_form_widget.dart';
 import 'package:investapp/shared/base/base.dart';
@@ -8,6 +9,12 @@ final class LoginScreen extends BaseScreen<AuthController> {
 
   @override
   PreferredSizeWidget? get appBar => null;
+
+  @override
+  dispose() {
+    super.dispose();
+    GetIt.I.unregister<AuthController>();
+  }
 
   @override
   Widget builder(BuildContext context) {
@@ -27,13 +34,21 @@ final class LoginScreen extends BaseScreen<AuthController> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "InvestApp",
-                  style: theme.textTheme.titleSmall,
-                ),
-                Text(
-                  "Sua plataforma de investimentos.",
-                  style: theme.textTheme.labelSmall,
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "InvestApp",
+                        style: theme.textTheme.titleSmall,
+                      ),
+                      Text(
+                        "Sua plataforma de investimentos.",
+                        style: theme.textTheme.labelSmall,
+                      ),
+                    ],
+                  ),
                 ),
 
                 const AuthFormWidget(),

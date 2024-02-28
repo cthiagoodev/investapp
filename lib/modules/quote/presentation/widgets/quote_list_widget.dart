@@ -43,7 +43,7 @@ final class QuoteListWidget extends BaseWidget<QuoteController> {
                           stock.logo ?? "",
                           placeholderBuilder: (context) => Padding(
                             padding: EdgeInsets.all(10.w),
-                            child: CircularProgressIndicator(
+                            child: const CircularProgressIndicator(
                               strokeWidth: .5,
                             ),
                           ),

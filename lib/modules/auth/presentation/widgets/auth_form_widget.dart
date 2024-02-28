@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:investapp/modules/auth/auth.dart';
 import 'package:investapp/modules/user/bloc/user_bloc.dart';
 import 'package:investapp/modules/user/user.dart';
@@ -26,7 +27,31 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
     return Form(
       child: Column(
         children: [
-          InputWidget(),
+          Padding(
+            padding: EdgeInsets.only(bottom: 10.h),
+            child: InputWidget(
+              hintText: "Informe seu e-mail",
+              controller: controller.email,
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(bottom: 10.h),
+            child: InputWidget(
+              hintText: "Informe sua senha",
+              controller: controller.password,
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              textInputAction: TextInputAction.send,
+            ),
+          ),
+
+          ButtonWidget(
+            text: "Entrar",
+            onPressed: () {},
+          ),
         ],
       ),
     );

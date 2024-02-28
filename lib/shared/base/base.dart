@@ -31,11 +31,14 @@ class _BaseScreenState extends State<BaseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MediaQuery(
-      data: const MediaQueryData(textScaler: TextScaler.linear(1.0)),
-      child: Scaffold(
-        appBar: widget.appBar,
-        body: widget.builder(context),
+    return GestureDetector(
+      onTap: FocusScope.of(context).unfocus,
+      child: MediaQuery(
+        data: const MediaQueryData(textScaler: TextScaler.linear(1.0)),
+        child: Scaffold(
+          appBar: widget.appBar,
+          body: widget.builder(context),
+        ),
       ),
     );
   }
