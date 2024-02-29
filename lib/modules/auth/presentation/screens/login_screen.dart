@@ -2,7 +2,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/auth/presentation/controllers/auth_controller.dart';
 import 'package:investapp/modules/auth/presentation/widgets/auth_form_widget.dart';
-import 'package:investapp/shared/base/base.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class LoginScreen extends BaseScreen<AuthController> {
@@ -62,7 +61,30 @@ final class LoginScreen extends BaseScreen<AuthController> {
                   ],
                 ),
 
-                const AuthFormWidget(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const AuthFormWidget(),
+
+                    Padding(
+                      padding: EdgeInsets.only(top: 10.h),
+                      child: Text(
+                        "OU",
+                        style: theme.textTheme.labelSmall,
+                      ),
+                    ),
+
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pushNamed(AppRoutes.register),
+                      child: Text(
+                        "Crie sua conta",
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: theme.colorScheme.primary
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
