@@ -37,6 +37,7 @@ class _BaseScreenState extends State<BaseScreen> {
         data: const MediaQueryData(textScaler: TextScaler.linear(1.0)),
         child: Scaffold(
           appBar: widget.appBar,
+          resizeToAvoidBottomInset: true,
           body: widget.builder(context),
         ),
       ),
