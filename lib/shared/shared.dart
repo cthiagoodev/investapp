@@ -18,4 +18,5 @@ export 'ui/widgets/input_widget.dart';
 export 'ui/widgets/button_widget.dart';
 export 'ui/widgets/loading_widget.dart';
 export 'ui/widgets/error_widget.dart';
+export 'ui/images/images.dart';
 

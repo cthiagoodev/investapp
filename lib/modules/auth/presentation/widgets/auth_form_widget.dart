@@ -20,10 +20,15 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
     if(state is UserLoginState) {
       Navigator.of(context).pushReplacementNamed(AppRoutes.home);
     }
+
+    if(state is UserErrorState) {
+      controller.password.clear();
+    }
   }
 
   Widget _buildState(BuildContext context, UserState state) {
     bool isLoading = state is UserAuthProcessState;
+    bool isError = state is UserErrorState;
     return Form(
       child: Column(
         children: [
@@ -49,6 +54,18 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
               textInputAction: TextInputAction.send,
             ),
           ),
+
+          if(isError)
+            Padding(
+              padding: EdgeInsets.only(bottom: 10.h),
+              child: Text(
+                state.message,
+                textAlign: TextAlign.start,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: Colors.red,
+                ),
+              ),
+            ),
 
           (isLoading)
             ? ShimmerEffectWidget(

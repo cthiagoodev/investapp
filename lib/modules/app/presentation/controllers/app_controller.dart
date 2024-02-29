@@ -16,7 +16,7 @@ final class AppController {
       AppRoutes.quote => _buildRoute(settings, child: const QuoteScreen()),
       AppRoutes.quoteDetail => _buildRoute(settings, child: const QuoteDetailScreen()),
       AppRoutes.login => _buildRoute(settings, child: const LoginScreen()),
-      _ => _buildRoute(settings, child: const HomeScreen()),
+      _ => _buildRoute(settings, child: const LoginScreen()),
     };
   }
 
