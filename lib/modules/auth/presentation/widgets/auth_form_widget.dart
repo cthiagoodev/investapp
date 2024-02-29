@@ -50,20 +50,12 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
             ),
           ),
 
-          (isLoading)
-            ? ShimmerEffectWidget(
-            child: ButtonWidget(
-              text: "",
-              enable: false,
-              onPressed: () {},
-            ),
-          )
-          : ValueListenableBuilder<bool>(
+          ValueListenableBuilder<bool>(
             valueListenable: controller.formIsValid,
-            builder: (context, value, child) {
-              return ButtonWidget(
+            builder: (context, formIsValid, child) {
+              return ButtonLoadingWidget(
                 text: "Entrar",
-                enable: value && !isLoading,
+                enable: formIsValid && !isLoading,
                 onPressed: () {
                   BlocProvider.of<UserBloc>(context)
                       .login(controller.email.text, controller.password.text);
