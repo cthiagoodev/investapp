@@ -21,8 +21,8 @@ final class UserRemoteRepository implements IUserRemoteRepository {
       email: credential.user!.email ?? "",
       name: credential.user!.displayName ?? "",
       profileImage: credential.user!.photoURL ?? "",
-      accessToken: credential.credential!.accessToken!,
-      token: credential.credential!.token!,
+      accessToken: credential.credential?.accessToken ?? "",
+      token: credential.credential?.token ?? 0,
     );
 
     return appUser;

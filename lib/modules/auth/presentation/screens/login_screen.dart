@@ -19,44 +19,46 @@ final class LoginScreen extends BaseScreen<AuthController> {
   @override
   Widget builder(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    return Column(
-      children: [
-        Expanded(
-          child: Container(
+    return SingleChildScrollView(
+      physics: const AlwaysScrollableScrollPhysics(
+        parent: BouncingScrollPhysics()
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: .5.sh,
             color: theme.colorScheme.primary,
           ),
-        ),
-        Expanded(
-          child: Container(
+          Container(
             width: 1.sw,
+            height: .5.sh,
             padding: EdgeInsets.all(20.w),
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "InvestApp",
-                        style: theme.textTheme.titleSmall,
-                      ),
-                      Text(
-                        "Sua plataforma de investimentos.",
-                        style: theme.textTheme.labelSmall,
-                      ),
-                    ],
-                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "InvestApp",
+                      style: theme.textTheme.titleSmall,
+                    ),
+                    Text(
+                      "Sua plataforma de investimentos.",
+                      style: theme.textTheme.labelSmall,
+                    ),
+                  ],
                 ),
 
                 const AuthFormWidget(),
               ],
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

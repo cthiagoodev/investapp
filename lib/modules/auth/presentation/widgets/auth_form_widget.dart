@@ -10,20 +10,19 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
 
   @override
   Widget builder(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
-      builder: (context, state) {
-        return switch(state.runtimeType) {
-          UserAuthProcessState ||
-          UserLogoutState ||
-          UserErrorState ||
-          UserInitialState => _buildState(state),
-          _ => const SizedBox.shrink(),
-        };
-      },
+    return BlocConsumer<UserBloc, UserState>(
+      listener: _listener,
+      builder: _buildState,
     );
   }
 
-  Widget _buildState(UserState state) {
+  void _listener(BuildContext context, UserState state) {
+    if(state is UserLoginState) {
+      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+    }
+  }
+
+  Widget _buildState(BuildContext context, UserState state) {
     bool isLoading = state is UserAuthProcessState;
     return Form(
       child: Column(
@@ -33,6 +32,7 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
             child: InputWidget(
               hintText: "Informe seu e-mail",
               controller: controller.email,
+              enabled: !isLoading,
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
             ),
@@ -43,18 +43,27 @@ final class AuthFormWidget extends BaseWidget<AuthController> {
             child: InputWidget(
               hintText: "Informe sua senha",
               controller: controller.password,
+              enabled: !isLoading,
               obscureText: true,
               keyboardType: TextInputType.visiblePassword,
               textInputAction: TextInputAction.send,
             ),
           ),
 
-          ValueListenableBuilder<bool>(
+          (isLoading)
+            ? ShimmerEffectWidget(
+            child: ButtonWidget(
+              text: "",
+              enable: false,
+              onPressed: () {},
+            ),
+          )
+          : ValueListenableBuilder<bool>(
             valueListenable: controller.formIsValid,
             builder: (context, value, child) {
               return ButtonWidget(
                 text: "Entrar",
-                enable: value,
+                enable: value && !isLoading,
                 onPressed: () {
                   BlocProvider.of<UserBloc>(context)
                       .login(controller.email.text, controller.password.text);

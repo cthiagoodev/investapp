@@ -7,12 +7,9 @@ final class AuthController {
   final ValueNotifier<bool> formIsValid = ValueNotifier<bool>(false);
 
   AuthController() {
-    email.addListener(() {
-      formIsValid.value = email.value.text.isNotEmpty && password.text.isNotEmpty;
-    });
-
-    password.addListener(() {
-      formIsValid.value = password.value.text.isNotEmpty;
-    });
+    email.addListener(() => formIsValid.value = _formIsValid());
+    password.addListener(() => formIsValid.value = _formIsValid());
   }
+
+  bool _formIsValid() => email.value.text.isNotEmpty && password.text.isNotEmpty;
 }
