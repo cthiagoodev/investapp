@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/auth/presentation/controllers/register_controller.dart';
-import 'package:investapp/shared/base/base.dart';
+import 'package:investapp/modules/auth/presentation/widgets/register_form_widget.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class RegisterScreen extends BaseScreen<RegisterController> {
@@ -19,79 +21,57 @@ final class RegisterScreen extends BaseScreen<RegisterController> {
   @override
   Widget builder(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-      child: SingleChildScrollView(
-        padding: EdgeInsets.all(20.w),
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(
-                  AppImages.APP_ICON,
-                  height: 40.sp,
-                ),
-                Text(
-                  "Crie a \nsua conta",
-                  style: theme.textTheme.titleMedium,
-                ),
-              ],
-            ),
-
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.h),
-              child: Form(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: InputWidget(
-                        hintText: "Informe seu nome",
-                        textInputAction: TextInputAction.next,
-                      ),
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top + 20.w,
+        left: 20.w,
+        right: 20.w,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(bottom: 10.h),
+                child: InkWell(
+                  onTap: Navigator.of(context).pop,
+                  borderRadius: BorderRadius.circular(100.r),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(
+                      Icons.CHEVRON_LEFT_SOLID,
+                      alignment: Alignment.center,
+                      height: 20.sp,
                     ),
-
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: InputWidget(
-                        hintText: "Informe seu e-mail",
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: InputWidget(
-                        hintText: "Confirme seu e-mail",
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: InputWidget(
-                        hintText: "Informe sua senha",
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: InputWidget(
-                        hintText: "Confirme sua senha",
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(right: 10.w),
+                    child: Image.asset(
+                      AppImages.APP_ICON,
+                      height: 40.sp,
+                    ),
+                  ),
+                  Text(
+                    "Crie a \nsua conta",
+                    style: theme.textTheme.titleMedium,
+                  ),
+                ],
+              ),
+            ],
+          ),
+
+          SingleChildScrollView(
+            padding: EdgeInsets.symmetric(vertical: 10.h),
+            child: const RegisterFormWidget(),
+          ),
+        ],
       ),
     );
   }

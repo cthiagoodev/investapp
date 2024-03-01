@@ -25,6 +25,8 @@ dependencies:
   firebase_auth: ^4.17.5
   cloud_firestore: ^4.15.5
   loading_animation_widget: ^1.2.0+4
+  flutter_platform_alert: ^0.5.1
+  multi_value_listenable_builder: ^0.0.2
 
 dev_dependencies:
   flutter_test:
