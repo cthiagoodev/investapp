@@ -42,6 +42,7 @@ final class RegisterFormWidget extends BaseWidget<RegisterController> {
             child: InputWidget(
               hintText: "Informe sua senha",
               keyboardType: TextInputType.visiblePassword,
+              obscureText: true,
               textInputAction: TextInputAction.next,
             ),
           ),
@@ -51,6 +52,7 @@ final class RegisterFormWidget extends BaseWidget<RegisterController> {
             child: InputWidget(
               hintText: "Confirme sua senha",
               keyboardType: TextInputType.visiblePassword,
+              obscureText: true,
               textInputAction: TextInputAction.next,
             ),
           ),
@@ -66,7 +68,9 @@ final class RegisterFormWidget extends BaseWidget<RegisterController> {
               return ButtonLoadingWidget(
                 text: "Criar conta",
                 enable: formIsValid && !isSending,
-                onPressed: controller.register,
+                onPressed: () => controller.register(() {
+                  Navigator.of(context).pop();
+                }),
               );
             },
           ),

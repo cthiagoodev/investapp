@@ -25,18 +25,29 @@ final class RegisterController {
     confirmPassword.addListener(_validateForm);
   }
 
-  Future<void> register() async {
+  void _validateForm() {
+    formIsValid.value =  name.text.isNotEmpty &&
+        email.text.isNotEmpty &&
+        confirmEmail.text.isNotEmpty &&
+        password.text.isNotEmpty &&
+        confirmPassword.text.isNotEmpty;
+  }
+
+  Future<void> register(void Function() onRegister) async {
     try {
       isSending.value = true;
       final User user = await _registerUserUseCase.register(
           email: email.text, password: password.text);
       isSending.value = false;
-      final AlertButton result = await FlutterPlatformAlert.showAlert(
-        windowTitle: "Parabéns",
+
+      await FlutterPlatformAlert.showAlert(
+        windowTitle: "Parabéns ${user.name}",
         text: "Sua conta foi criada com sucesso",
         alertStyle: AlertButtonStyle.ok,
         iconStyle: IconStyle.exclamation,
       );
+
+      onRegister();
     } on Exception catch(error, stackTrace) {
       _handleError(error, stackTrace);
     }
@@ -47,16 +58,8 @@ final class RegisterController {
     FlutterPlatformAlert.showAlert(
       windowTitle: "Ocorreu um erro",
       text: error.toString(),
-      alertStyle: AlertButtonStyle.retryCancel,
+      alertStyle: AlertButtonStyle.ok,
       iconStyle: IconStyle.error,
     );
-  }
-
-  void _validateForm() {
-    formIsValid.value =  name.text.isNotEmpty &&
-        email.text.isNotEmpty &&
-        confirmEmail.text.isNotEmpty &&
-        password.text.isNotEmpty &&
-        confirmPassword.text.isNotEmpty;
   }
 }
