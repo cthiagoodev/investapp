@@ -1,9 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/auth/presentation/controllers/register_controller.dart';
 import 'package:investapp/modules/auth/presentation/widgets/register_form_widget.dart';
+import 'package:investapp/modules/user/user.dart';
+import 'package:investapp/shared/basics/extensions.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class RegisterScreen extends BaseScreen<RegisterController> {
@@ -13,9 +15,16 @@ final class RegisterScreen extends BaseScreen<RegisterController> {
   PreferredSizeWidget? get appBar => null;
 
   @override
+  initState() {
+    super.initState();
+    GetIt.I.registerIfNotRegistered<RegisterController>(RegisterController(
+        RegisterUserUseCase(UserRemoteRepository(UserRemoteDataSource(FirebaseAuth.instance)))));
+  }
+
+  @override
   dispose() {
+    super.dispose();
     GetIt.I.unregister<RegisterController>();
-    return super.dispose();
   }
 
   @override

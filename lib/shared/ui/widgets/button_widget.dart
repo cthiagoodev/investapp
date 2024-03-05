@@ -13,7 +13,11 @@ final class ButtonWidget extends ElevatedButton {
     required this.onPressed,
     this.enable = true,
   }) : super(
-    onPressed: enable ? onPressed : null,
+    onPressed: () {
+      if(enable) {
+        onPressed();
+      }
+    },
     style: ButtonStyle(
       alignment: Alignment.center,
       backgroundColor: MaterialStatePropertyAll(enable ? _theme.colorScheme.primary : Colors.grey),

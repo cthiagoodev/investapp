@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/auth/presentation/controllers/auth_controller.dart';
 import 'package:investapp/modules/auth/presentation/widgets/auth_form_widget.dart';
+import 'package:investapp/shared/basics/extensions.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class LoginScreen extends BaseScreen<AuthController> {
@@ -9,6 +10,12 @@ final class LoginScreen extends BaseScreen<AuthController> {
 
   @override
   PreferredSizeWidget? get appBar => null;
+
+  @override
+  initState() {
+    super.initState();
+    GetIt.I.registerIfNotRegistered<AuthController>(AuthController());
+  }
 
   @override
   dispose() {
@@ -31,7 +38,7 @@ final class LoginScreen extends BaseScreen<AuthController> {
               color: theme.colorScheme.primary,
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage(AppImages.BACKGROUND_IMAGE_LOGIN),
+                image: const AssetImage(AppImages.BACKGROUND_IMAGE_LOGIN),
                 alignment: Alignment.center,
                 colorFilter: ColorFilter.mode(theme.colorScheme.primary.withOpacity(.3), BlendMode.color),
               )
