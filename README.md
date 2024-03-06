@@ -1,30 +1,32 @@
-# **InvestApp**
+# InvestApp
 
-## Descrição
+O **InvestApp** é um aplicativo para Android e iOS que oferece informações sobre cotações e criptomoedas. Ele foi desenvolvido utilizando as seguintes tecnologias:
 
-O InvestApp é um aplicativo para Android e iOS que mostra dados de cotações e criptomoedas. O aplicativo foi desenvolvido usando Flutter, BloC, práticas de SOLID, Clean Architecture e Código Limpo.
+- **Flutter**: Um framework de desenvolvimento de aplicativos móveis que permite criar interfaces de usuário bonitas e responsivas.
+- **BloC**: Um padrão de gerenciamento de estado que ajuda a separar a lógica de negócios da interface do usuário.
+- **SOLID**: Princípios de design de software que promovem a modularidade, flexibilidade e manutenção.
+- **Clean Architecture**: Uma abordagem que organiza o código em camadas, facilitando a manutenção e a escalabilidade.
+- **Código Limpo**: Esforço contínuo para escrever código claro, legível e de fácil manutenção.
 
 ## Recursos
 
-Lista de criptomoedas com cotações em tempo real
-Gráficos de preços das criptomoedas
-Notificações sobre variações de preços
-Busca de criptomoedas
-Configurações de personalização
+O InvestApp oferece os seguintes recursos:
 
-## Tecnologias
-
-* Flutter
-* BloC
-* SOLID
-* Clean Architecture
-* Código Limpo
+1. **Lista de Criptomoedas com Cotações em Tempo Real**: Acompanhe as cotações atualizadas das principais criptomoedas.
+2. **Gráficos de Preços das Criptomoedas**: Visualize a evolução dos preços ao longo do tempo.
+3. **Notificações sobre Variações de Preços**: Receba alertas quando houver mudanças significativas nas cotações.
+4. **Busca de Criptomoedas**: Encontre rapidamente informações sobre moedas específicas.
+5. **Configurações de Personalização**: Ajuste o aplicativo de acordo com suas preferências.
 
 ## Contribuições
 
-Contribuições são bem-vindas. Se você deseja contribuir para o desenvolvimento do InvestApp, siga estas etapas:
+Contribuições são sempre bem-vindas! Se você deseja colaborar com o desenvolvimento do InvestApp, siga estas etapas:
 
-Clone o repositório do GitHub.
-Faça suas alterações.
-Faça um commit das suas alterações.
-Envie um pull request.
+1. Clone o repositório do GitHub.
+2. Faça suas alterações.
+3. Faça um commit das suas mudanças.
+4. Envie um pull request.
+
+## Sobre
+
+Este projeto é um aplicativo de cotação de criptomoedas. Se tiver alguma dúvida ou sugestão, não hesite em entrar em contato! 😊
