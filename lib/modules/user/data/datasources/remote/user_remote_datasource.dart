@@ -11,7 +11,7 @@ final class UserRemoteDataSource {
     return credential;
   }
 
-  Future register(String email, String password) async {
+  Future<UserCredential> register(String email, String password) async {
     final UserCredential credential = await _firebaseAuth
         .createUserWithEmailAndPassword(email: email, password: password);
     return credential;
