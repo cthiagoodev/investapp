@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:investapp/modules/auth/auth.dart';
 import 'package:investapp/modules/home/presentation/controllers/home_controller.dart';
-import 'package:investapp/modules/user/user.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class HomePreferredSizeWidget extends PreferredSize {
