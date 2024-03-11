@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:investapp/modules/auth/bloc/login/login_bloc.dart';
 import 'package:investapp/modules/auth/bloc/user/user_bloc.dart';
+import 'package:investapp/modules/auth/domain/model/user_credentials.dart';
 
 final class AuthViewModel {
   final TextEditingController email = TextEditingController();
@@ -19,10 +20,21 @@ final class AuthViewModel {
 
   bool _formIsValid() => email.value.text.isNotEmpty && password.text.isNotEmpty;
 
-  void showErrorAlert(UserErrorState error) {
+  void login() {
+    loginBloc.add(LoginSubmittedEvent(_getCredentials()));
+  }
+
+  UserCredentials _getCredentials() {
+    return UserCredentials(
+      email: email.text,
+      password: password.text,
+    );
+  }
+
+  void showErrorAlert(LoginErrorState error) {
     FlutterPlatformAlert.showAlert(
       windowTitle: "Ocorreu um erro ao realizar login",
-      text: error.message,
+      text: error.error.toString(),
       iconStyle: IconStyle.error,
       alertStyle: AlertButtonStyle.ok,
     );

@@ -59,8 +59,8 @@ final class RegisterFormWidget extends BaseWidget<RegisterViewModel> {
 
           MultiValueListenableBuilder(
             valueListenables: [
-              controller.formIsValid,
-              controller.isSending,
+              viewModel.formIsValid,
+              viewModel.isSending,
             ],
             builder: (context, values, child) {
               bool formIsValid = values[0];
@@ -68,7 +68,7 @@ final class RegisterFormWidget extends BaseWidget<RegisterViewModel> {
               return ButtonLoadingWidget(
                 text: "Criar conta",
                 enable: formIsValid && !isSending,
-                onPressed: () => controller.register(() {
+                onPressed: () => viewModel.register(() {
                   Navigator.of(context).pop();
                 }),
               );

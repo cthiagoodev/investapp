@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:investapp/modules/auth/bloc/user/user_bloc.dart';
+import 'package:investapp/modules/auth/bloc/login/login_bloc.dart';
 import 'package:investapp/modules/auth/presentation/view_model/auth_view_model.dart';
 import 'package:investapp/shared/shared.dart';
 
@@ -9,25 +9,28 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
 
   @override
   Widget builder(BuildContext context) {
-    return BlocConsumer<UserBloc, UserState>(
-      listener: _listener,
-      builder: _buildState,
+    return BlocProvider<LoginBloc>(
+      create: (_) => viewModel.loginBloc,
+      child: BlocConsumer<LoginBloc, LoginState>(
+        listener: _listener,
+        builder: _buildState,
+      ),
     );
   }
 
-  void _listener(BuildContext context, UserState state) {
-    if(state is UserLoginState) {
+  void _listener(BuildContext context, LoginState state) {
+    if(state is LoginSuccessState) {
       Navigator.of(context).pushReplacementNamed(AppRoutes.home);
     }
 
-    if(state is UserErrorState) {
-      controller.showErrorAlert(state);
-      controller.password.clear();
+    if(state is LoginErrorState) {
+      viewModel.showErrorAlert(state);
+      viewModel.password.clear();
     }
   }
 
-  Widget _buildState(BuildContext context, UserState state) {
-    bool isLoading = state is UserAuthProcessState;
+  Widget _buildState(BuildContext context, LoginState state) {
+    bool isLoading = state is LoginInProcessState;
     return Form(
       child: Column(
         children: [
@@ -35,7 +38,7 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
             padding: EdgeInsets.only(bottom: 10.h),
             child: InputWidget(
               hintText: "Informe seu e-mail",
-              controller: controller.email,
+              controller: viewModel.email,
               enabled: !isLoading,
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
@@ -46,7 +49,7 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
             padding: EdgeInsets.only(bottom: 10.h),
             child: InputWidget(
               hintText: "Informe sua senha",
-              controller: controller.password,
+              controller: viewModel.password,
               enabled: !isLoading,
               obscureText: true,
               keyboardType: TextInputType.visiblePassword,
@@ -55,15 +58,12 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
           ),
 
           ValueListenableBuilder<bool>(
-            valueListenable: controller.formIsValid,
+            valueListenable: viewModel.formIsValid,
             builder: (context, formIsValid, child) {
               return ButtonLoadingWidget(
                 text: "Entrar",
                 enable: formIsValid && !isLoading,
-                onPressed: () {
-                  BlocProvider.of<UserBloc>(context)
-                      .login(controller.email.text, controller.password.text);
-                },
+                onPressed: viewModel.login,
               );
             },
           )

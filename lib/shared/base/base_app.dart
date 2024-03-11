@@ -3,7 +3,7 @@ part of 'base.dart';
 sealed class BaseApp<T extends Object> extends StatefulWidget {
   const BaseApp({super.key});
 
-  T get controller => GetIt.I.get<T>();
+  T get viewModel => GetIt.I.get<T>();
 
   initState() {}
 
