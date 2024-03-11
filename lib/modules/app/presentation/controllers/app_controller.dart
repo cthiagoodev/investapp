@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/auth/auth.dart';
 import 'package:investapp/modules/home/home.dart';
@@ -37,8 +36,5 @@ final class AppController {
     GetIt.I.registerLazySingleton<HomeController>(() => HomeController());
     GetIt.I.registerLazySingleton<QuoteController>(() => QuoteController());
     GetIt.I.registerLazySingleton<QuoteDetailController>(() => QuoteDetailController());
-    GetIt.I.registerLazySingleton<AuthViewModel>(() => AuthViewModel());
-    GetIt.I.registerLazySingleton<RegisterViewModel>(() => RegisterViewModel(
-        RegisterUserUseCase(AuthRemoteRepository(AuthRemoteDataSource(FirebaseAuth.instance)))));
   }
 }

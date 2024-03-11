@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:investapp/modules/app/presentation/controllers/app_controller.dart';
@@ -16,8 +15,7 @@ final class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<UserBloc>(create: (context) {
-          return UserBloc(AuthUserUseCase(
-              AuthRemoteRepository(AuthRemoteDataSource(FirebaseAuth.instance))));
+          return UserBloc();
         }),
       ],
       child: MaterialApp(

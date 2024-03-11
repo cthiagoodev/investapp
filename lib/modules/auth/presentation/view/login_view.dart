@@ -1,5 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
+import 'package:investapp/modules/auth/presentation/bindings/auth_binding.dart';
 import 'package:investapp/modules/auth/presentation/view_model/auth_view_model.dart';
 import 'package:investapp/modules/auth/presentation/widgets/auth_form_widget.dart';
 import 'package:investapp/shared/basics/extensions.dart';
@@ -14,7 +15,7 @@ final class LoginView extends BaseScreen<AuthViewModel> {
   @override
   initState() {
     super.initState();
-    GetIt.I.registerIfNotRegistered<AuthViewModel>(AuthViewModel());
+    GetIt.I.registerIfNotRegistered<AuthViewModel>(authBinding);
   }
 
   @override
