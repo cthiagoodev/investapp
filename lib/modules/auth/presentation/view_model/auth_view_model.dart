@@ -10,10 +10,10 @@ final class AuthViewModel {
 
   final ValueNotifier<bool> formIsValid = ValueNotifier<bool>(false);
 
-  final LoginBloc loginBloc;
-  final UserBloc userBloc;
+  final LoginCubit loginCubit;
+  final UserCubit userCubit;
 
-  AuthViewModel(this.loginBloc, this.userBloc) {
+  AuthViewModel(this.loginCubit, this.userCubit) {
     email.addListener(() => formIsValid.value = _formIsValid());
     password.addListener(() => formIsValid.value = _formIsValid());
   }
@@ -21,7 +21,7 @@ final class AuthViewModel {
   bool _formIsValid() => email.value.text.isNotEmpty && password.text.isNotEmpty;
 
   void login() {
-    loginBloc.add(LoginSubmittedEvent(_getCredentials()));
+    loginCubit.onLoginSubmitted(_getCredentials());
   }
 
   UserCredentials _getCredentials() {

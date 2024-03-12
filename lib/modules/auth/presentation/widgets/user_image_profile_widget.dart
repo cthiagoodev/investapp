@@ -9,7 +9,7 @@ final class UserImageProfileWidget extends BaseWidget {
 
   @override
   Widget builder(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
+    return BlocBuilder<UserCubit, UserState>(
       builder: (context, state) {
         return switch(state.runtimeType) {
           UserLoginState => _buildImageProfile(),

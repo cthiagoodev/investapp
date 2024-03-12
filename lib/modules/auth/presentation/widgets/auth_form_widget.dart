@@ -9,9 +9,9 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
 
   @override
   Widget builder(BuildContext context) {
-    return BlocProvider<LoginBloc>(
-      create: (_) => viewModel.loginBloc,
-      child: BlocConsumer<LoginBloc, LoginState>(
+    return BlocProvider<LoginCubit>(
+      create: (_) => viewModel.loginCubit,
+      child: BlocConsumer<LoginCubit, LoginState>(
         listener: _listener,
         builder: _buildState,
       ),

@@ -7,6 +7,6 @@ import 'package:investapp/modules/auth/domain/usecases/auth_user_usecase.dart';
 import 'package:investapp/modules/auth/presentation/view_model/auth_view_model.dart';
 
 final AuthViewModel authBinding = AuthViewModel(
-    LoginBloc(AuthUserUseCase(AuthRemoteRepository(AuthRemoteDataSource(FirebaseAuth.instance)))),
-    UserBloc(),
+    LoginCubit(AuthUserUseCase(AuthRemoteRepository(AuthRemoteDataSource(FirebaseAuth.instance)))),
+    UserCubit(),
 );
