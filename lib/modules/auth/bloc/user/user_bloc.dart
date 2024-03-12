@@ -6,4 +6,8 @@ part 'user_state.dart';
 class UserCubit extends Cubit<UserState> {
 
   UserCubit() : super(UserInitialState(null));
+
+  void setUser(User newUser) => emit(UserLoginState(newUser));
+
+  void remoteUser() => emit(UserLogoutState(null));
 }

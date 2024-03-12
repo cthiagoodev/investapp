@@ -9,12 +9,9 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
 
   @override
   Widget builder(BuildContext context) {
-    return BlocProvider<LoginCubit>(
-      create: (_) => viewModel.loginCubit,
-      child: BlocConsumer<LoginCubit, LoginState>(
-        listener: _listener,
-        builder: _buildState,
-      ),
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: _listener,
+      builder: _buildState,
     );
   }
 
@@ -30,7 +27,6 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
   }
 
   Widget _buildState(BuildContext context, LoginState state) {
-    bool isLoading = state is LoginInProcessState;
     return Form(
       child: Column(
         children: [
@@ -39,7 +35,7 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
             child: InputWidget(
               hintText: "Informe seu e-mail",
               controller: viewModel.email,
-              enabled: !isLoading,
+              enabled: !viewModel.isLoading(),
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
             ),
@@ -50,7 +46,7 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
             child: InputWidget(
               hintText: "Informe sua senha",
               controller: viewModel.password,
-              enabled: !isLoading,
+              enabled: !viewModel.isLoading(),
               obscureText: true,
               keyboardType: TextInputType.visiblePassword,
               textInputAction: TextInputAction.send,
@@ -62,7 +58,7 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
             builder: (context, formIsValid, child) {
               return ButtonLoadingWidget(
                 text: "Entrar",
-                enable: formIsValid && !isLoading,
+                enable: formIsValid && !viewModel.isLoading(),
                 onPressed: viewModel.login,
               );
             },
