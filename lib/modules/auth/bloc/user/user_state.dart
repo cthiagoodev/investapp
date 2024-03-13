@@ -3,18 +3,24 @@ part of 'user_bloc.dart';
 abstract base class UserState {
   final User? user;
   UserState(this.user);
+
+  factory UserState.initial() => UserInitialState(null);
+  factory UserState.loading() => UserLoadingState(null);
+  factory UserState.success(User user) => UserLoggedState(user);
+  factory UserState.logout() => UserLogoutState(null);
+  factory UserState.error(String error) => UserErrorState(error);
 }
 
 final class UserInitialState extends UserState {
   UserInitialState(super.user);
 }
 
-final class UserAuthProcessState extends UserState {
-  UserAuthProcessState(super.user);
+final class UserLoadingState extends UserState {
+  UserLoadingState(super.user);
 }
 
-final class UserLoginState extends UserState {
-  UserLoginState(super.user);
+final class UserLoggedState extends UserState {
+  UserLoggedState(super.user);
 }
 
 final class UserLogoutState extends UserState {

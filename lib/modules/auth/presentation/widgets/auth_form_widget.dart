@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:investapp/modules/auth/bloc/login/login_bloc.dart';
+import 'package:investapp/modules/auth/bloc/user/user_bloc.dart';
 import 'package:investapp/modules/auth/presentation/view_model/auth_view_model.dart';
 import 'package:investapp/shared/shared.dart';
 
@@ -9,24 +9,12 @@ final class AuthFormWidget extends BaseWidget<AuthViewModel> {
 
   @override
   Widget builder(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
-      listener: _listener,
+    return BlocBuilder<UserBloc, UserState>(
       builder: _buildState,
     );
   }
 
-  void _listener(BuildContext context, LoginState state) {
-    if(state is LoginSuccessState) {
-      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
-    }
-
-    if(state is LoginErrorState) {
-      viewModel.showErrorAlert(state);
-      viewModel.password.clear();
-    }
-  }
-
-  Widget _buildState(BuildContext context, LoginState state) {
+  Widget _buildState(BuildContext context, UserState state) {
     return Form(
       child: Column(
         children: [

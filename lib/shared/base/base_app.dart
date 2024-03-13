@@ -5,9 +5,11 @@ sealed class BaseApp<T extends Object> extends StatefulWidget {
 
   T get viewModel => GetIt.I.get<T>();
 
-  initState() {}
+  void initViewModel(BuildContext context) {}
 
-  dispose() {}
+  void initState() {}
+
+  void dispose() {}
 
   Widget builder(BuildContext context);
 }

@@ -14,8 +14,8 @@ final class App extends StatelessWidget {
     ScreenUtil.init(context, minTextAdapt: true);
     return MultiBlocProvider(
       providers: [
-        BlocProvider<UserCubit>(create: (context) {
-          return UserCubit();
+        BlocProvider<UserBloc>(create: (context) {
+          return UserBloc();
         }),
       ],
       child: MaterialApp(
