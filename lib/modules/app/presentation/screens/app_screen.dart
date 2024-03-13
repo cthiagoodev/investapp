@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:investapp/modules/app/presentation/controllers/app_controller.dart';
-import 'package:investapp/modules/auth/auth.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class App extends StatelessWidget {
@@ -14,9 +13,7 @@ final class App extends StatelessWidget {
     ScreenUtil.init(context, minTextAdapt: true);
     return MultiBlocProvider(
       providers: [
-        BlocProvider<UserBloc>(create: (context) {
-          return UserBloc();
-        }),
+
       ],
       child: MaterialApp(
         title: "InvestApp",

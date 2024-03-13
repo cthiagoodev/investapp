@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
-import 'package:investapp/modules/auth/bloc/user/user_bloc.dart';
+import 'package:investapp/modules/auth/bloc/login/login_bloc.dart';
+import 'package:investapp/modules/login/bloc/user/user_bloc.dart';
 import 'package:investapp/modules/auth/domain/model/user_credentials.dart';
 
 class AuthViewModel {
@@ -8,14 +9,11 @@ class AuthViewModel {
   final TextEditingController password = TextEditingController();
   final ValueNotifier<bool> formIsValid = ValueNotifier<bool>(false);
 
-  final UserBloc userBloc;
+  final LoginBloc loginBloc;
 
-  AuthViewModel(this.userBloc) {
+  AuthViewModel(this.loginBloc) {
     email.addListener(() => formIsValid.value = _formIsValid());
     password.addListener(() => formIsValid.value = _formIsValid());
-    userBloc.stream.listen((event) {
-
-    });
   }
 
   bool _formIsValid() => email.value.text.isNotEmpty && password.text.isNotEmpty;

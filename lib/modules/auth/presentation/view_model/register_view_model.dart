@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:investapp/modules/auth/domain/model/user.dart';
-import 'package:investapp/modules/auth/domain/usecases/register_user_usecase.dart';
+import 'package:investapp/modules/login/domain/usecases/register_user_usecase.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class RegisterViewModel {
