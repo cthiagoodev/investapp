@@ -80,3 +80,18 @@ final class ConnectionTimeOutException implements AppException {
     return "$message";
   }
 }
+
+final class CredentialException implements AppException {
+  @override
+  final String? _message;
+
+  CredentialException([this._message]);
+
+  @override
+  String toString() {
+    Object? message = _message;
+    if (_message == null) return "Credenciais inválidas";
+    return "$message";
+  }
+}
+
