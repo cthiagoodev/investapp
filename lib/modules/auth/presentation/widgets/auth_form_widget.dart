@@ -1,20 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:investapp/modules/login/bloc/user/user_bloc.dart';
-import 'package:investapp/modules/auth/presentation/view_model/auth_view_model.dart';
+import 'package:investapp/modules/auth/bloc/login/login_bloc.dart';
+import 'package:investapp/modules/auth/presentation/view_model/login_view_model.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class AuthFormWidget extends BaseWidget<AuthViewModel> {
+final class AuthFormWidget extends BaseWidget<LoginViewModel> {
   const AuthFormWidget({super.key});
 
   @override
   Widget builder(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
+    return BlocBuilder<LoginBloc, LoginState>(
       builder: _buildState,
     );
   }
 
-  Widget _buildState(BuildContext context, UserState state) {
+  Widget _buildState(BuildContext context, LoginState state) {
     return Form(
       child: Column(
         children: [

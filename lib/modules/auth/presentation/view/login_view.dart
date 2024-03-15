@@ -2,12 +2,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:investapp/modules/auth/bloc/login/login_bloc.dart';
-import 'package:investapp/modules/auth/presentation/view_model/auth_view_model.dart';
+import 'package:investapp/modules/auth/presentation/view_model/login_view_model.dart';
 import 'package:investapp/modules/auth/presentation/widgets/auth_form_widget.dart';
 import 'package:investapp/shared/basics/extensions.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class LoginView extends BaseScreen<AuthViewModel> {
+final class LoginView extends BaseScreen<LoginViewModel> {
   const LoginView({super.key});
 
   @override
@@ -15,15 +15,15 @@ final class LoginView extends BaseScreen<AuthViewModel> {
 
   @override
   void initViewModel(BuildContext context) {
-    GetIt.I.registerIfNotRegistered<AuthViewModel>(
-        AuthViewModel(context.read<LoginBloc>()));
+    GetIt.I.registerIfNotRegistered<LoginViewModel>(
+        LoginViewModel(context.read<LoginBloc>()));
     super.initViewModel(context);
   }
 
   @override
   void dispose() {
     super.dispose();
-    GetIt.I.unregister<AuthViewModel>();
+    GetIt.I.unregister<LoginViewModel>();
   }
 
   @override

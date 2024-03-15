@@ -1,35 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:investapp/modules/auth/bloc/login/login_bloc.dart';
-import 'package:investapp/modules/login/bloc/user/user_bloc.dart';
-import 'package:investapp/modules/auth/domain/model/user_credentials.dart';
 
-class AuthViewModel {
+class LoginViewModel {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final ValueNotifier<bool> formIsValid = ValueNotifier<bool>(false);
 
   final LoginBloc loginBloc;
 
-  AuthViewModel(this.loginBloc) {
+  LoginViewModel(this.loginBloc) {
     email.addListener(() => formIsValid.value = _formIsValid());
-    password.addListener(() => formIsValid.value = _formIsValid());
+    password.addListener(() => formIsVlid.value = _formIsValid());
   }
 
   bool _formIsValid() => email.value.text.isNotEmpty && password.text.isNotEmpty;
 
-  Future<void> login() async {
-   await userBloc.login(_getCredentials());
+  void login() {
+    loginBloc.add(LoginSubmittedEvent(email.text, password.text));
   }
 
-  UserCredentials _getCredentials() {
-    return UserCredentials(
-      email: email.text,
-      password: password.text,
-    );
-  }
-
-  void showErrorAlert(UserErrorState error) {
+  void showErrorAlert(LoginErrorState error) {
     FlutterPlatformAlert.showAlert(
       windowTitle: "Ocorreu um erro ao realizar login",
       text: error.toString(),
