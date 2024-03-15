@@ -18,10 +18,12 @@ final class LoginView extends BaseScreen<LoginViewModel> {
   PreferredSizeWidget? get appBar => null;
 
   @override
-  void initState(BuildContext context) {
+  void initState() {
     GetIt.I.registerIfNotRegistered<LoginViewModel>(
-        LoginViewModel(context.read<LoginBloc>()));
-    super.initState(context);
+        LoginViewModel(LoginBloc(
+            AuthService(AuthRemoteRepository(
+                AuthRemoteDataSource(FirebaseAuth.instance))))));
+    super.initState();
   }
 
   @override
@@ -34,8 +36,7 @@ final class LoginView extends BaseScreen<LoginViewModel> {
   Widget builder(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return BlocProvider<LoginBloc>(
-      create: (_) => LoginBloc(
-          AuthService(AuthRemoteRepository(AuthRemoteDataSource(FirebaseAuth.instance)))),
+      create: (_) => viewModel.loginBloc,
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(
             parent: BouncingScrollPhysics()

@@ -19,7 +19,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
   @override
   void initState() {
-    widget.initState(context);
+    widget.initState();
     super.initState();
   }
 
@@ -56,7 +56,7 @@ class _BaseWidgetState extends State<BaseWidget> {
 
   @override
   void initState() {
-    widget.initState(context);
+    widget.initState();
     super.initState();
   }
 
