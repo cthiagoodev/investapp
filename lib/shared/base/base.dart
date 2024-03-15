@@ -19,17 +19,14 @@ class _BaseScreenState extends State<BaseScreen> {
 
   @override
   void initState() {
+    widget.initState(context);
     super.initState();
-    widget.initState();
-    if(mounted) {
-      widget.initViewModel(context);
-    }
   }
 
   @override
   void dispose() {
-    super.dispose();
     widget.dispose();
+    super.dispose();
   }
 
   @override
@@ -59,7 +56,7 @@ class _BaseWidgetState extends State<BaseWidget> {
 
   @override
   void initState() {
-    widget.initState();
+    widget.initState(context);
     super.initState();
   }
 

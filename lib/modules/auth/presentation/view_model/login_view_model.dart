@@ -11,7 +11,7 @@ class LoginViewModel {
 
   LoginViewModel(this.loginBloc) {
     email.addListener(() => formIsValid.value = _formIsValid());
-    password.addListener(() => formIsVlid.value = _formIsValid());
+    password.addListener(() => formIsValid.value = _formIsValid());
   }
 
   bool _formIsValid() => email.value.text.isNotEmpty && password.text.isNotEmpty;
@@ -19,6 +19,8 @@ class LoginViewModel {
   void login() {
     loginBloc.add(LoginSubmittedEvent(email.text, password.text));
   }
+
+  bool loginIsInProcess() =>loginBloc.state == LoginState.process();
 
   void showErrorAlert(LoginErrorState error) {
     FlutterPlatformAlert.showAlert(

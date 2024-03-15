@@ -23,7 +23,7 @@ final class AuthFormWidget extends BaseWidget<LoginViewModel> {
             child: InputWidget(
               hintText: "Informe seu e-mail",
               controller: viewModel.email,
-              enabled: !viewModel.isLoading(),
+              enabled: !viewModel.loginIsInProcess(),
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
             ),
@@ -34,7 +34,7 @@ final class AuthFormWidget extends BaseWidget<LoginViewModel> {
             child: InputWidget(
               hintText: "Informe sua senha",
               controller: viewModel.password,
-              enabled: !viewModel.isLoading(),
+              enabled: !viewModel.loginIsInProcess(),
               obscureText: true,
               keyboardType: TextInputType.visiblePassword,
               textInputAction: TextInputAction.send,
@@ -46,7 +46,7 @@ final class AuthFormWidget extends BaseWidget<LoginViewModel> {
             builder: (context, formIsValid, child) {
               return ButtonLoadingWidget(
                 text: "Entrar",
-                enable: formIsValid && !viewModel.isLoading(),
+                enable: formIsValid && !viewModel.loginIsInProcess(),
                 onPressed: viewModel.login,
               );
             },
