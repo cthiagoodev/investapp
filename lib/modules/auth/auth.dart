@@ -1,8 +1,6 @@
 library auth;
 
 export 'domain/model/user.dart';
-export 'data/datasources/remote/auth_remote_datasource.dart';
-export 'data/repositories/remote/auth_remote_repository.dart';
 export 'presentation/view/login_view.dart';
 export 'presentation/view/register_view.dart';
 export 'presentation/widgets/auth_form_widget.dart';
