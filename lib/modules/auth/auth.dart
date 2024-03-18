@@ -11,3 +11,4 @@ export 'presentation/widgets/user_image_profile_widget.dart';
 export 'presentation/view_model/login_view_model.dart';
 export 'presentation/view_model/register_view_model.dart';
 export 'presentation/bindings/login_binding.dart';
+export 'presentation/bindings/register_binding.dart';

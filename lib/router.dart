@@ -20,6 +20,13 @@ GoRouter routerConfig = GoRouter(
           _builder(state, const LoginView(), LoginBinding()),
       onExit: (context) => _onExit(LoginBinding()),
     ),
+    GoRoute(
+      path: AppRoutes.register,
+      name: "Register",
+      builder: (context, state) =>
+          _builder(state, const RegisterView(), RegisterBinding()),
+      onExit: (context) => _onExit(RegisterBinding()),
+    ),
   ],
 );
 

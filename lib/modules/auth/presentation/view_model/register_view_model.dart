@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_alert/flutter_platform_alert.dart';
 import 'package:investapp/modules/auth/domain/model/user.dart';
+import 'package:investapp/modules/auth/domain/services/auth_service.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class RegisterViewModel {
@@ -15,9 +16,9 @@ final class RegisterViewModel {
   final ValueNotifier<bool> isSending = ValueNotifier<bool>(false);
   final ValueNotifier<bool> formIsValid = ValueNotifier<bool>(false);
 
-  final RegisterUserUseCase _registerUserUseCase;
+  final AuthService _authService;
 
-  RegisterViewModel(this._registerUserUseCase) {
+  RegisterViewModel(this._authService) {
     name.addListener(_validateForm);
     email.addListener(_validateForm);
     confirmEmail.addListener(_validateForm);
@@ -36,7 +37,7 @@ final class RegisterViewModel {
   Future<void> register(void Function() onRegister) async {
     try {
       isSending.value = true;
-      final User user = await _registerUserUseCase.register(
+      final User user = await _authService.register(
           email: email.text, password: password.text);
       isSending.value = false;
 
