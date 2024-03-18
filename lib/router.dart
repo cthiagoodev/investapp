@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:investapp/modules/auth/auth.dart';
+import 'package:investapp/modules/home/home.dart';
 import 'package:investapp/shared/shared.dart';
 
 GoRouter routerConfig = GoRouter(
@@ -8,7 +9,9 @@ GoRouter routerConfig = GoRouter(
     GoRoute(
       path: AppRoutes.home,
       name: "Home",
-      pageBuilder: (context, state) => _builder(state, ),
+      builder: (context, state) =>
+          _builder(state, const HomeView(), HomeBinding()),
+      onExit: (context) => _onExit(HomeBinding()),
     ),
     GoRoute(
       path: AppRoutes.login,
