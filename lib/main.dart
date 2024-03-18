@@ -10,5 +10,5 @@ void main() async {
     initializeFirebase(),
   ]);
   initInjection();
-  runApp(App(AppController()));
+  runApp(const AppView());
 }

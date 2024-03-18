@@ -6,6 +6,11 @@ GoRouter routerConfig = GoRouter(
   initialLocation: AppRoutes.login,
   routes: [
     GoRoute(
+      path: AppRoutes.home,
+      name: "Home",
+      pageBuilder: (context, state) => _builder(state, ),
+    ),
+    GoRoute(
       path: AppRoutes.login,
       name: "Login",
       builder: (context, state) =>
@@ -15,12 +20,12 @@ GoRouter routerConfig = GoRouter(
   ],
 );
 
-Widget _builder(GoRouterState state, Widget page, Binding binding) {
-  binding.dependencies();
+Widget _builder(GoRouterState state, Widget page, [Binding? binding]) {
+  binding?.dependencies();
   return page;
 }
 
-Future<bool> _onExit(Binding binding) async {
-  binding.dispose();
+Future<bool> _onExit([Binding? binding]) async {
+  binding?.dispose();
   return true;
 }

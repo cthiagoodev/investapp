@@ -1,9 +1,9 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:investapp/modules/home/presentation/controllers/home_controller.dart';
+import 'package:investapp/modules/home/presentation/viewmodels/home_viewmodel.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class HomeOptionButton extends BaseWidget<HomeController> {
+final class HomeOptionButton extends BaseWidget<HomeViewModel> {
   final String icon;
   final String title;
   final String description;

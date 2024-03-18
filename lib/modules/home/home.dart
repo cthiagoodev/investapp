@@ -1,5 +1,5 @@
 library home;
 
-export './presentation/screens/home_screen.dart';
-export './presentation/controllers/home_controller.dart';
+export './presentation/views/home_view.dart';
+export './presentation/viewmodels/home_viewmodel.dart';
 export './presentation/widgets/home_app_bar_widget.dart';

@@ -1,4 +1,4 @@
 library app;
 
-export 'presentation/screens/app_screen.dart';
-export 'presentation/controllers/app_controller.dart';
+export 'presentation/views/app_view.dart';
+export 'presentation/viewmodels/app_viewmodel.dart';

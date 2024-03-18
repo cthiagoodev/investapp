@@ -1,11 +1,11 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:investapp/modules/home/presentation/controllers/home_controller.dart';
+import 'package:investapp/modules/home/presentation/viewmodels/home_viewmodel.dart';
 import 'package:investapp/modules/home/presentation/widgets/home_app_bar_widget.dart';
 import 'package:investapp/modules/home/presentation/widgets/home_option_button.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class HomeScreen extends BaseScreen<HomeController> {
-  const HomeScreen({super.key});
+final class HomeView extends BaseScreen<HomeViewModel> {
+  const HomeView({super.key});
 
   @override
   Widget builder(BuildContext context) {

@@ -1,14 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:investapp/modules/auth/auth.dart';
-import 'package:investapp/modules/home/presentation/controllers/home_controller.dart';
+import 'package:investapp/modules/home/presentation/viewmodels/home_viewmodel.dart';
 import 'package:investapp/shared/shared.dart';
 
 final class HomePreferredSizeWidget extends PreferredSize {
-  const HomePreferredSizeWidget({super.key, required super.child}) : super(preferredSize: const Size.fromHeight(150));
+  const HomePreferredSizeWidget({super.key, required super.child}) :
+        super(preferredSize: const Size.fromHeight(150));
 }
 
-final class HomeAppBarWidget extends BaseWidget<HomeController> {
+final class HomeAppBarWidget extends BaseWidget<HomeViewModel> {
   const HomeAppBarWidget({super.key});
 
   @override
@@ -52,19 +53,20 @@ final class HomeAppBarWidget extends BaseWidget<HomeController> {
   }
 
   Widget _buildUserName() {
-    return BlocBuilder<UserCubit, UserState>(
-      builder: (context, state) {
-        if(state is UserLoginState) {
-          return Text("Thiago Sousa", style: _nameStyle());
-        }
-
-        if(state is UserAuthProcessState) {
-          return Text("Aguarde...", style: _nameStyle());
-        }
-
-        return Text("Thiago Sousa", style: _nameStyle());
-      },
-    );
+    // return BlocBuilder<UserCubit, UserState>(
+    //   builder: (context, state) {
+    //     if(state is UserLoginState) {
+    //       return Text("Thiago Sousa", style: _nameStyle());
+    //     }
+    //
+    //     if(state is UserAuthProcessState) {
+    //       return Text("Aguarde...", style: _nameStyle());
+    //     }
+    //
+    //     return Text("Thiago Sousa", style: _nameStyle());
+    //   },
+    // );
+    return Text("Thiago Sousa", style: _nameStyle());
   }
 
   TextStyle? _nameStyle() {
