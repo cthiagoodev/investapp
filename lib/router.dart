@@ -1,13 +1,16 @@
 import 'package:go_router/go_router.dart';
 import 'package:investapp/modules/auth/auth.dart';
-import 'package:investapp/shared/basics/routes.dart';
+import 'package:investapp/shared/shared.dart';
 
 GoRouter routerConfig = GoRouter(
+  initialLocation: AppRoutes.login,
   routes: [
     GoRoute(
       path: AppRoutes.login,
       name: "Login",
-      builder: (context, state) => _builder(state, LoginView(), binding),
+      builder: (context, state) =>
+          _builder(state, const LoginView(), LoginBinding()),
+      onExit: (context) => _onExit(LoginBinding()),
     ),
   ],
 );
