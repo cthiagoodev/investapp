@@ -20,7 +20,7 @@ class LoginViewModel {
     loginBloc.add(LoginSubmittedEvent(email.text, password.text));
   }
 
-  bool loginIsInProcess() =>loginBloc.state == LoginState.process();
+  bool loginIsInProcess() => loginBloc.state == LoginState.process();
 
   void showErrorAlert(LoginErrorState error) {
     FlutterPlatformAlert.showAlert(
