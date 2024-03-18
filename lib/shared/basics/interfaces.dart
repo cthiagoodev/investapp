@@ -6,3 +6,8 @@ abstract interface class HttpClient {
   Future<Response<T>> put<T>(String path, {Map<String, dynamic>? data, Map<String, dynamic>? headers, Map<String, dynamic>? queryParameters});
   Future<Response<T>> delete<T>(String path, {Map<String, dynamic>? data, Map<String, dynamic>? headers, Map<String, dynamic>? queryParameters});
 }
+
+abstract interface class Binding {
+  void dependencies();
+  void dispose();
+}
