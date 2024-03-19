@@ -7,7 +7,7 @@ import 'package:investapp/modules/quote/presentation/widgets/quote_list_widget.d
 import 'package:investapp/modules/quote/presentation/widgets/quote_loading_widget.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class QuoteView extends BaseScreen<QuoteViewModel> {
+final class QuoteView extends BaseView<QuoteViewModel> {
   const QuoteView({super.key});
 
   @override

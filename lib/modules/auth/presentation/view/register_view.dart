@@ -5,7 +5,7 @@ import 'package:investapp/modules/auth/presentation/view_model/register_view_mod
 import 'package:investapp/modules/auth/presentation/widgets/register_form_widget.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class RegisterView extends BaseScreen<RegisterViewModel> {
+final class RegisterView extends BaseView<RegisterViewModel> {
   const RegisterView({super.key});
 
   @override

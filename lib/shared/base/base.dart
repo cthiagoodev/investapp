@@ -6,16 +6,16 @@ export "package:flutter/material.dart";
 
 part 'base_app.dart';
 
-abstract base class BaseScreen<T extends Object> extends BaseApp<T> {
-  const BaseScreen({super.key});
+abstract base class BaseView<T extends Object> extends BaseApp<T> {
+  const BaseView({super.key});
 
   PreferredSizeWidget? get appBar => const DefaultPreferredSizeWidget(child: DefaultAppBarWidget());
 
   @override
-  State<BaseScreen> createState() => _BaseScreenState();
+  State<BaseView> createState() => _BaseViewState();
 }
 
-class _BaseScreenState extends State<BaseScreen> {
+class _BaseViewState extends State<BaseView> {
 
   @override
   void initState() {

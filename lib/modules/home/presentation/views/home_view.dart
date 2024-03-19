@@ -4,7 +4,7 @@ import 'package:investapp/modules/home/presentation/widgets/home_app_bar_widget.
 import 'package:investapp/modules/home/presentation/widgets/home_option_button.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class HomeView extends BaseScreen<HomeViewModel> {
+final class HomeView extends BaseView<HomeViewModel> {
   const HomeView({super.key});
 
   @override

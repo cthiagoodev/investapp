@@ -5,7 +5,7 @@ import 'package:investapp/modules/auth/presentation/view_model/login_view_model.
 import 'package:investapp/modules/auth/presentation/widgets/auth_form_widget.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class LoginView extends BaseScreen<LoginViewModel> {
+final class LoginView extends BaseView<LoginViewModel> {
   const LoginView({super.key});
 
   @override
