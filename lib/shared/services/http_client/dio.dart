@@ -3,7 +3,7 @@ import 'package:investapp/shared/basics/exceptions.dart';
 import 'package:investapp/shared/basics/interfaces.dart';
 import 'package:investapp/shared/basics/models.dart';
 
-final class DioService implements HttpClient {
+class DioService implements HttpClient {
   final Dio _dio;
 
   DioService(this._dio) {
