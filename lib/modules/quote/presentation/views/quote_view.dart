@@ -1,23 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
-import 'package:investapp/modules/quote/bloc/quote_bloc.dart';
-import 'package:investapp/modules/quote/data/datasources/remote/quote_remote_datasource.dart';
-import 'package:investapp/modules/quote/data/repositories/quote_repository.dart';
+import 'package:investapp/modules/quote/bloc/quote/quote_bloc.dart';
 import 'package:investapp/modules/quote/domain/entities/quote.dart';
-import 'package:investapp/modules/quote/domain/usecases/get_quote_usecase.dart';
-import 'package:investapp/modules/quote/presentation/controllers/quote_controller.dart';
+import 'package:investapp/modules/quote/presentation/viewmodels/quote_viewmodel.dart';
 import 'package:investapp/modules/quote/presentation/widgets/quote_list_widget.dart';
 import 'package:investapp/modules/quote/presentation/widgets/quote_loading_widget.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class QuoteScreen extends BaseScreen<QuoteController> {
-  const QuoteScreen({super.key});
+final class QuoteView extends BaseScreen<QuoteViewModel> {
+  const QuoteView({super.key});
 
   @override
   Widget builder(BuildContext context) {
     return BlocProvider(
-      create: onCreate,
+      create: (_) => viewModel.quoteBloc,
       child: Padding(
         padding: EdgeInsets.only(left: 20.w, right: 20.w),
         child: BlocBuilder<QuoteBloc, QuoteState>(
@@ -34,11 +30,6 @@ final class QuoteScreen extends BaseScreen<QuoteController> {
         ),
       ),
     );
-  }
-
-  QuoteBloc onCreate(BuildContext context) {
-    return QuoteBloc(
-        GetQuoteUseCase(RemoteQuoteRepository(QuoteRemoteDataSource(GetIt.I.get<HttpClient>()))));
   }
 
   Widget _buildState(Quote state) {

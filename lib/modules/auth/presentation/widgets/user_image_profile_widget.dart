@@ -8,15 +8,16 @@ final class UserImageProfileWidget extends BaseWidget {
 
   @override
   Widget builder(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
-      builder: (context, state) {
-        return switch(state.runtimeType) {
-          UserLoggedState => _buildImageProfile(),
-          UserLoadingState => _buildLoading(),
-          _ => _buildImageProfile(),
-        };
-      },
-    );
+    return SizedBox();
+    // return BlocBuilder<UserBloc, UserState>(
+    //   builder: (context, state) {
+    //     return switch(state.runtimeType) {
+    //       UserLoggedState => _buildImageProfile(),
+    //       UserLoadingState => _buildLoading(),
+    //       _ => _buildImageProfile(),
+    //     };
+    //   },
+    // );
   }
 
   Widget _buildImageProfile() {

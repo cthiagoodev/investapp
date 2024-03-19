@@ -1,8 +1,8 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:investapp/modules/quote/presentation/controllers/quote_controller.dart';
+import 'package:investapp/modules/quote/presentation/viewmodels/quote_viewmodel.dart';
 import 'package:investapp/shared/shared.dart';
 
-final class QuoteLoadingWidget extends BaseWidget<QuoteController> {
+final class QuoteLoadingWidget extends BaseWidget<QuoteViewModel> {
   const QuoteLoadingWidget({super.key});
 
   @override
