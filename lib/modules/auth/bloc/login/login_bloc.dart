@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:investapp/modules/auth/domain/model/user.dart';
 import 'package:investapp/modules/auth/domain/services/auth_service.dart';
+import 'package:investapp/modules/global_bloc/user/user_bloc.dart';
 import 'package:investapp/shared/basics/exceptions.dart';
 
 part 'login_event.dart';
@@ -9,8 +10,9 @@ part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthService _service;
+  final UserBloc _userBloc;
 
-  LoginBloc(this._service) : super(LoginState.initial()) {
+  LoginBloc(this._service, this._userBloc) : super(LoginState.initial()) {
     on<LoginSubmittedEvent>(_handleLoginSubmittedEvent);
   }
 
@@ -24,6 +26,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       User user = await _service.login(
           email: event.email, password: event.password);
+      _userBloc.add(UserLoginEvent(user));
       emit(LoginState.success(user));
     } on AppException catch(error) {
       emit(LoginState.error(error));
